@@ -9,11 +9,13 @@ $query->setMaxResults(30);
 $bugs = $query->getResult();
 
 foreach($bugs AS $bug) {
+	echo "<br/>--------------------------------------------------- <br/>";
     echo $bug->getDescription()." - ".$bug->getCreated()->format('d.m.Y')."\n";
     echo "    Reported by: ".$bug->getReporter()->getName()."\n";
     echo "    Assigned to: ".$bug->getEngineer()->getName()."\n";
+    echo "<br/>";
     foreach($bug->getProducts() AS $product) {
-        echo "    Platform: ".$product->getName()."\n";
+        echo "<br/>    Platform: ".$product->getName()."<br/>";
     }
-    echo "\n";
+   echo "<br/>--------------------------------------------------- <br/>";
 }
